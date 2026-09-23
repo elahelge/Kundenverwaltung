@@ -3,18 +3,213 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Kundendetails</title>
+    <title>Kunde bearbeiten</title>
 
     <link rel="stylesheet" href="index.css">
     <script src="main.js" defer></script>
 </head>
 
 <body>
+
     <h1>Kundenverwaltung</h1>
 
     <h2>Kunde bearbeiten</h2>
 
-    
-</body>
+    <form id="kundeBearbeitenForm">
 
+
+        
+        <fieldset>
+            <legend>Stammdaten</legend>
+
+
+            <div>
+                <label for="kundennummer">Kundennummer</label>
+                <span>K-</span>
+
+                <input
+                    id="kundennummer"
+                    name="kundennummer"
+                    type="text"
+                    readonly
+                >
+            </div>
+
+
+            <div>
+                <label for="vorname">Vorname</label>
+
+                <input
+                    id="vorname"
+                    name="vorname"
+                    type="text"
+                    required
+                >
+            </div>
+
+
+            <div>
+                <label for="nachname">Nachname</label>
+
+                <input
+                    id="nachname"
+                    name="nachname"
+                    type="text"
+                    required
+                >
+            </div>
+
+
+            <div>
+                <label for="geburtsdatum">Geburtsdatum</label>
+
+                <input
+                    id="geburtsdatum"
+                    name="geburtsdatum"
+                    type="date"
+                    required
+                >
+            </div>
+
+
+            <div>
+                <label for="geschlecht">Geschlecht</label>
+
+                <select
+                    id="geschlecht"
+                    name="geschlecht"
+                    required
+                >
+                    <option value="">Bitte wählen...</option>
+                    <option value="m">Männlich</option>
+                    <option value="w">Weiblich</option>
+                    <option value="d">Divers</option>
+                </select>
+            </div>
+
+
+            <div>
+                <label for="email">E-Mail-Adresse</label>
+
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                >
+            </div>
+
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Adresse</legend>
+
+
+            <div>
+                <label for="strasse">Straße</label>
+
+                <input
+                    id="strasse"
+                    name="strasse"
+                    type="text"
+                    required
+                >
+            </div>
+
+
+            <div>
+                <label for="hausnummer">Hausnummer</label>
+
+                <input
+                    id="hausnummer"
+                    name="hausnummer"
+                    type="text"
+                    required
+                >
+            </div>
+
+
+            <div>
+                <label for="postleitzahl">Postleitzahl</label>
+
+                <input
+                    id="postleitzahl"
+                    name="postleitzahl"
+                    type="text"
+                    required
+                >
+            </div>
+
+
+            <div>
+                <label for="ort">Ort</label>
+
+                <input
+                    id="ort"
+                    name="ort"
+                    type="text"
+                    required
+                >
+            </div>
+
+        </fieldset>
+
+
+        
+        <fieldset>
+            <legend>Kundenstatus</legend>
+
+            <div>
+                <label for="kundenstatus">Status</label>
+
+                <select
+                    id="kundenstatus"
+                    name="kundenstatus"
+                    required
+                >
+                    <option value="aktiv">Aktiv</option>
+                    <option value="inaktiv">Inaktiv</option>
+                </select>
+            </div>
+
+        </fieldset>
+
+
+       
+        <fieldset>
+            <legend>Notizen</legend>
+
+            <div>
+                <label for="notizen">Notizen</label>
+
+                <textarea
+                    id="notizen"
+                    name="notizen"
+                    rows="5"
+                ></textarea>
+            </div>
+
+        </fieldset>
+
+
+       
+        <button type="submit">
+            Änderungen speichern
+        </button>
+
+
+    
+        <button
+            type="button"
+            id="abbrechen"
+        >
+            Abbrechen
+        </button>
+
+
+    </form>
+
+</body>
 </html>
+
