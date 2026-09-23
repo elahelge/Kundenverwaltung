@@ -86,10 +86,10 @@
             <legend>Adresse</legend>
 
             <div>
-                <label for="straße">Straße</label>
+                <label for="strasse">Straße</label>
                 <input
-                    id="straße"
-                    name="straße"
+                    id="strasse"
+                    name="strasse"
                     type="text"
                     required
                 >
@@ -112,6 +112,7 @@
                     id="postleitzahl"
                     name="postleitzahl"
                     type="text"
+                    maxlength="5"
                     required
                 >
             </div>
@@ -130,18 +131,16 @@
         </fieldset>
 
         <fieldset>
-            <legend><label for="notizen">Notizen</label></legend>
-            <input 
-                id="notizen"
-                name="notizen"
-                type="text"
-                >
-            
+            <legend>Notizen</legend>
+
             <div>
-                
-                
+                <label for="notizen"></label>
+                <textarea
+                    id="notizen"
+                    name="notizen"
+                    rows="5"
+                ></textarea>
             </div>
-        
         </fieldset>
 
         <button type="submit">Kunde anlegen</button>
