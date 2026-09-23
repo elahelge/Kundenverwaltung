@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+    
+<head>
+    <meta charset="utf-8">
+    <title>Neuer Kunde</title>
+
+    <link rel="stylesheet" href="index.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <h1>Kundenverwaltung</h1>
+    
+    <h2>Neuen Kunden anlegen</h2>
+
+    <form id="kundenForm">
+
+        <div>
+            <label for="kundennummer">Kundennummer</label>
+            <input
+                id="kundennummer"
+                name="kundennummer"
+                type="text"
+                value="K-"
+                required
+            >
+        </div>
+
+        <div>
+            <label for="vorname">Vorname</label>
+            <input
+                id="vorname"
+                name="vorname"
+                type="text"
+                required
+            >
+        </div>
+
+        <div>
+            <label for="nachname">Nachname</label>
+            <input
+                id="nachname"
+                name="nachname"
+                type="text"
+                required
+            >
+        </div>
+
+        <div>
+            <label for="geburtsdatum">Geburtsdatum</label>
+            <input
+                id="geburtsdatum"
+                name="geburtsdatum"
+                type="date"
+                required
+            >
+        </div>
+
+        <div>
+            <label for="geschlecht">Geschlecht</label>
+            <select name="geschlecht" id="geschlecht" required>
+                <option value="">Bitte Wählen...</option>
+                <option value="m">Männlich</option>
+                <option value="w">Weiblich</option>
+                <option value="d">Divers</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="email">E-Mail-Adresse</label>
+            <input
+                id="email"
+                name="email"
+                type="email"
+                required
+            >
+        </div>
+
+        <div>
+            <label for="straße">Straße</label>
+            <input
+                id="straße"
+                name="straße"
+                type="text"
+                required
+            >
+        </div>
+        
+        <div>
+            <label for="hausnummer">Hausnummer</label>
+            <input
+                id="hausnummer"
+                name="hausnummer"
+                type="text"
+                required
+            >
+        </div>
+
+        
+        <div>
+            <label for="postleitzahl">Postleitzahl</label>
+            <input
+                id="postleitzahl"
+                name="postleitzahl"
+                type="text"
+                required
+            >
+        </div>
+        
+        
+        <div>
+            <label for="ort">Ort</label>
+            <input
+                id="ort"
+                name="ort"
+                type="text"
+                required
+            >
+        </div>
+
+        <button type="submit">Kunde anlegen</button>
+
+    </form>
+</body>
+</html>
