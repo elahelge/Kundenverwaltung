@@ -1,24 +1,50 @@
+```html
 <!DOCTYPE html>
+<html lang="de">
 
-<html lang="de-DE">
-    <head>
-        <title>Kundenverwaltung</title>
-        <meta charset="utf-8">
-        <meta name="Kundenverwaltung">
-        <link rel="stylesheet" href="index.css">  
-        <script src="main.js" defer></script>      
-    </head>
-    <body>
-        <h1>Kundenverwaltung</h1>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Kundenverwaltung">
+    <title>Kundenverwaltung</title>
 
-        <!--Login Modul-->
+    <link rel="stylesheet" href="index.css">
+    <script src="main.js" defer></script>
+</head>
 
-        <h2>Login</h2>
-        <label for="Benutzername">Benutzername</label>
-        <input id="Benutzername" type="text"> 
-        <br>
-        <label for="Passwort">Passwort</label>
-        <input id="Benutzername" type="text"> 
+<body>
 
-    </body>
+    <h1>Kundenverwaltung</h1>
+
+    <!-- Login Modul -->
+    <h2>Login</h2>
+
+    <form id="loginForm">
+
+        <div>
+            <label for="username">Benutzername</label>
+            <input
+                id="username"
+                name="username"
+                type="text"
+                required
+            >
+        </div>
+
+        <div>
+            <label for="password">Passwort</label>
+            <input
+                id="password"
+                name="password"
+                type="password"
+                required
+            >
+        </div>
+
+        <div class="button">
+            <button type="submit">Login</button>
+        </div>
+
+    </form>
+
+</body>
 </html>
