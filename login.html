@@ -10,34 +10,42 @@
     <script src="main.js" defer></script>
 </head>
 
-<body>
+<body id="login">
 
     <h1>Kundenverwaltung</h1>
 
     <!-- Login Modul -->
-    <h2>Login</h2>
+    
 
     <form id="loginForm">
 
-        <div>
-            <label for="username">Benutzername</label>
-            <input
-                id="username"
-                name="username"
-                type="text"
-                required
-            >
-        </div>
+        <fieldset>
 
-        <div>
-            <label for="password">Passwort</label>
-            <input
-                id="password"
-                name="password"
-                type="password"
-                required
-            >
-        </div>
+            <legend><h2>Login</h2></legend>
+
+
+            <div>
+                <label for="username">Benutzername</label>
+                <input
+                    id="username"
+                    name="username"
+                    type="text"
+                    required
+                >
+            </div>
+            
+            
+            <div>
+                <label for="password">Passwort</label>
+                <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    required
+                >
+            </div>
+
+        </fieldset>
 
         <div class="button">
             <button type="submit">Login</button>
