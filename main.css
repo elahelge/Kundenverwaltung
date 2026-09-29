@@ -1,0 +1,293 @@
+/* Definition von Variablen */
+:root {
+    --cBack: #ffffff;
+    --c1: #1a1a1a;
+    --c2: #f1f3f5;
+}
+
+/* =========
+   Allgemein
+   ========= */
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: var(--cBack);
+        color: var(--c1);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont,
+            'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+            'Open Sans', 'Helvetica Neue', sans-serif;
+
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        padding: 20px;
+        padding-bottom: 200px;
+    }
+
+    /* Überschriften */
+
+        /* Hauptüberschrift immer gleich */
+        h1 {
+            text-align: center;
+            width: 100%;
+            max-width: 526px;
+            margin: 0 auto;
+            padding: 8px 0;
+        }
+
+
+    h2 {
+        width: 100%;
+        max-width: 500px;
+        padding-bottom: 20px;
+        margin: 0 auto;
+    }
+
+    /* Eingabefelder Form und Farbe */
+    input,
+    select,
+    textarea {
+        border: solid 1px var(--c1);
+        border-radius: 3px;
+        color: var(--c1);
+        padding: 6px;
+        width: 200px;
+        max-width: 100%;
+    }
+
+    /* Umrandung bei klicken auf Textfeld */
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: solid var(--c1) 1px;
+    }
+
+    /* Button */
+    button {
+        color: var(--c1);
+        background-color: var(--c2);
+        border: solid 1px var(--c1);
+        border-radius: 3px;
+        padding: 6px;
+        cursor: pointer;
+    }
+
+        /* Button änderung beim klicken und drübergehn */
+        button:hover,
+        button:focus {
+            background-color: var(--c1);
+            color: var(--c2);
+        }
+
+    /* Formular */
+
+        /* Abschnitte im Formular */
+        fieldset {
+            background-color: var(--c2);
+            border: solid 1px var(--c1);
+            border-radius: 3px;
+
+            width: 100%;
+            max-width: 500px;
+
+            margin: 0 auto;
+        }
+
+        /* Überschriften der Abschnitte */
+        legend {
+            font-weight: bold;
+        }
+
+        /* Beschreibung Textfeld */
+        label {
+            display: inline-block;
+            width: 180px;
+        }
+
+        /* Kleineres Textfeld bei Kundennummer wegen span(K-) */
+        #kundennummer {
+            width: 180px;
+        }
+
+        /* Abstand der Text und Eingabefelder  */
+        div {
+            padding: 8px;
+        }
+
+        /* Button-Bereich */
+        .button {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0px;
+            padding-block: 8px;
+            display: flex;
+        }
+
+
+/* =====
+   LOGIN
+   ===== */
+
+#login h1 {
+    padding-bottom: 140px;
+}
+
+#login h2 {
+    width: max-content;
+}
+
+#login legend {
+    text-align: center;
+}
+
+#login fieldset {
+    width: 100%;
+    max-width: 342px;
+    padding: 20px;
+}
+
+#login fieldset div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+/* Login-Eingabefelder */
+#login input,
+#login label {
+    padding: 8px;
+    width: 200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Login-Button */
+#login .button {
+    text-align: center;
+    padding-block: 10px;
+    max-width: 342px;
+    min-width: 258px;
+    
+}
+
+#login button {
+    width: 100%;
+    max-width: 342px;
+    padding: 8px;
+    margin: 0 auto;
+}
+
+
+/* =============
+   KUNDE ANLEGEN
+   ============= */
+
+#kundenForm button[type="button"] {
+    width: 116px;
+    max-width: 100%;
+    margin-left: auto;
+    
+    
+}
+
+#kundenForm button[type="submit"] {
+    width: 405px;
+    max-width: 100%;
+    margin-right: auto;
+}
+
+
+/* ================
+   KUNDE BEARBEITEN
+   ================ */
+
+#kundeBearbeitenForm button[type="button"] {
+    width: 116px;
+    max-width: 100%;
+}
+
+#kundeBearbeitenForm button[type="submit"] {
+    width: 405px;
+    max-width: 100%;
+}
+
+
+/* =============
+   KUNDE DETAILS
+   ============= */
+
+#kundeDetails button[id="kundeLoeschen"] {
+    width: 116px;
+    max-width: 100%;
+}
+
+#kundeDetails button[id="kundeBearbeiten"] {
+    width: 405px;
+    max-width: 100%;
+}
+
+button[id="kundeLoeschen"]:hover,
+button[id="kundeLoeschen"]:focus {
+    background-color: red;
+}
+
+
+/* ==================
+   KLEINE BILDSCHIRME
+   ================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    #login h1 {
+        padding-bottom: 60px;
+    }
+
+    fieldset {
+        padding: 12px;
+    }
+
+    label {
+        width: 100%;
+        margin-bottom: 4px;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+    }
+
+    #kundennummer {
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+/* ================
+   KUNDENUEBERSICHT
+   ================ */
+
+.kundenTabelle{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: dodgerblue;
+    padding: 6px;
