@@ -1,8 +1,9 @@
 /* Definition von Variablen */
 :root {
-    --cBack: #ffffff;
-    --c1: #1a1a1a;
-    --c2: #f1f3f5;
+    --cBack: #F8FAFC;
+    --c1: #0f172a;
+    --c2: #FFFFFF;
+    --cA: #4f46e5
 }
 
 /* =========
@@ -33,16 +34,19 @@
         h1 {
             text-align: center;
             width: 100%;
-            max-width: 526px;
+            max-width: 500px;
             margin: 0 auto;
             padding: 8px 0;
+            
+            border:solid;
+            border-radius: 3px;
         }
 
 
     h2 {
         width: 100%;
         max-width: 500px;
-        padding-bottom: 20px;
+        padding-block: 20px;
         margin: 0 auto;
     }
 
@@ -62,7 +66,7 @@
     input:focus,
     select:focus,
     textarea:focus {
-        outline: solid var(--c1) 1px;
+        outline: solid var(--cA) 2px;
     }
 
     /* Button */
@@ -78,7 +82,7 @@
         /* Button änderung beim klicken und drübergehn */
         button:hover,
         button:focus {
-            background-color: var(--c1);
+            background-color: var(--cA);
             color: var(--c2);
         }
 
@@ -99,6 +103,9 @@
         /* Überschriften der Abschnitte */
         legend {
             font-weight: bold;
+            float: left;
+            width: 100%;
+            margin-bottom: 10px;
         }
 
         /* Beschreibung Textfeld */
@@ -133,7 +140,7 @@
    ===== */
 
 #login h1 {
-    padding-bottom: 140px;
+    margin-bottom: 140px;
 }
 
 #login h2 {
@@ -159,7 +166,7 @@
 /* Login-Eingabefelder */
 #login input,
 #login label {
-    padding: 8px;
+    padding-block: 6px;
     width: 200px;
     max-width: 100%;
     margin: 0 auto;
@@ -170,8 +177,7 @@
     text-align: center;
     padding-block: 10px;
     max-width: 342px;
-    min-width: 258px;
-    
+    min-width: 258px;  
 }
 
 #login button {
@@ -190,8 +196,6 @@
     width: 116px;
     max-width: 100%;
     margin-left: auto;
-    
-    
 }
 
 #kundenForm button[type="submit"] {
@@ -286,8 +290,27 @@ button[id="kundeLoeschen"]:focus {
    KUNDENUEBERSICHT
    ================ */
 
-.kundenTabelle{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: dodgerblue;
+div#suche { 
+    text-align: right;
+    padding-right: 0px;
+    padding-left: 0px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.kundenTabelle{ 
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.kundenTabelle th, td {
+    border: 2px solid var(--c1);
     padding: 6px;
+    text-align: left;
+}
+
+.kundenTabelle thead{
+    background-color: var(--cA);
+    color: var(--c2);
+}
