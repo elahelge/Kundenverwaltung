@@ -1,3 +1,32 @@
+<?php
+
+$kunden = [
+    [
+        "nummer" => 1,
+        "vorname" => "Helge",
+        "nachname" => "Gepp",
+        "email" => "helge.gepp@container.de"
+    ],
+    [
+        "nummer" => 2,
+        "vorname" => "Max",
+        "nachname" => "Mustermann",
+        "email" => "max.mustermann@container.de"
+    ],
+    [
+        "nummer" => 3,
+        "vorname" => "Tom",
+        "nachname" => "Schmidt",
+        "email" => "tom.schmidt@container.de"
+    ]
+]
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="de-DE">
 
@@ -39,16 +68,19 @@
                 <th>Kundennummer</th>
                 <th>Name</th>
                 <th>E-Mail-Adresse</th>
-                <th>Aktionen</th>
+                <th></th>
             </tr>
         </thead>
 
         <tbody id="kundenTabelleNeu"> 
+
+        <?php foreach($kunden as $kunde): ?>
             <tr>
-                <td>001</td>
-                <td>Helge Gepp</td>
-                <td>helge.gepp@container.de</td>
-                <td class="aktionen"> 
+                <td><?= str_pad($kunde["nummer"], 3, "0", STR_PAD_LEFT) ?></td>
+                <td><?= $kunde["vorname"] . " " . $kunde["nachname"] ?></td>
+                <td><?= $kunde["email"] ?></td>
+        
+                <td class="aktion">
                     <a 
                         href="kunden-details.php">Details
                     </a>
@@ -58,8 +90,11 @@
                     </a>
                 
                 </td>
+                
             </tr>
-            <!-- Kunden werden später eingefügt --> 
+        
+            <?php endforeach; ?>
+            
         </tbody>
 
     </table>
