@@ -319,20 +319,43 @@ div#suche {
 
 
 .kundenTabelle th, td {
-    border: 2px solid var(--c1);
+    border: 2px solid;
     padding: 6px;
     text-align: left;
-    
+}
+
+.kundenTabelle td {
+    border:var(--c1);
 }
 
 .kundenTabelle thead{
-    background-color: var(--cA);
+    background-color: var(--c1);
     color: var(--c2);
+    
     
 }
 
 .kundenTabelle tbody tr:hover {
     background-color: #eef2ff;
+}
+
+.kundenTabelle a {
+    display: inline-block;
+
+    padding: 6px 12px;
+    margin-right: 5px;
+
+    background-color: var(--c2);
+    color: var(--c1);
+
+    text-decoration: none;
+    border-radius: 3px;
+
+}
+
+.kundenTabelle a:hover {
+    color: var(--cA);
+    
 }
 
 
