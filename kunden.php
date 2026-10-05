@@ -9,7 +9,14 @@
     <script src="main.js" defer></script>
 </head>
 
-<body>
+<body id="kundenUebersicht">
+        
+    <nav>
+        <a href="kunden.php">Kundenübersicht</a>
+        <a href="kunden-anlegen.php">Kunde anlegen</a>
+        <a href="login.php">Logout</a>
+    </nav>
+
     <h1>Kundenverwaltung</h1>
 
     <h2>Kundenübersicht</h2>
@@ -32,6 +39,7 @@
                 <th>Kundennummer</th>
                 <th>Name</th>
                 <th>E-Mail-Adresse</th>
+                <th>Aktionen</th>
             </tr>
         </thead>
 
@@ -40,6 +48,16 @@
                 <td>001</td>
                 <td>Helge Gepp</td>
                 <td>helge.gepp@container.de</td>
+                <td class="aktionen"> 
+                    <a 
+                        href="kunden-details.php">Details
+                    </a>
+
+                    <a 
+                        href="kunden-bearbeiten.php">Bearbeiten
+                    </a>
+                
+                </td>
             </tr>
             <!-- Kunden werden später eingefügt --> 
         </tbody>

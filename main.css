@@ -3,7 +3,7 @@
     --cBack: #F8FAFC;
     --c1: #0f172a;
     --c2: #FFFFFF;
-    --cA: #4f46e5
+    --cA: #4f46e5;
 }
 
 /* =========
@@ -21,12 +21,13 @@
             'Open Sans', 'Helvetica Neue', sans-serif;
 
         width: 100%;
-        max-width: 1000px;
+        max-width: 800px;
         margin: 0 auto;
 
         padding: 20px;
         padding-bottom: 200px;
     }
+
 
     /* Überschriften */
 
@@ -34,18 +35,18 @@
         h1 {
             text-align: center;
             width: 100%;
-            max-width: 500px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 8px 0;
             
-            border:solid;
+            border:solid 1px var(--c1);
             border-radius: 3px;
         }
 
 
     h2 {
         width: 100%;
-        max-width: 500px;
+        max-width: 1000px;
         padding-block: 20px;
         margin: 0 auto;
     }
@@ -67,6 +68,12 @@
     select:focus,
     textarea:focus {
         outline: solid var(--cA) 2px;
+    }
+
+    input:hover,
+    select:hover,
+    textarea:hover {
+        outline: solid var(--c1) 1px;
     }
 
     /* Button */
@@ -94,8 +101,10 @@
             border: solid 1px var(--c1);
             border-radius: 3px;
 
+            padding: 20px;
+
             width: 100%;
-            max-width: 500px;
+            max-width: 1000px;
 
             margin: 0 auto;
         }
@@ -127,7 +136,7 @@
         /* Button-Bereich */
         .button {
             width: 100%;
-            max-width: 500px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0px;
             padding-block: 8px;
@@ -193,14 +202,14 @@
    ============= */
 
 #kundenForm button[type="button"] {
-    width: 116px;
-    max-width: 100%;
+    width: 1000px;
+    max-width: 33%;
     margin-left: auto;
 }
 
 #kundenForm button[type="submit"] {
-    width: 405px;
-    max-width: 100%;
+    width: 1000px;
+    max-width: 67%;
     margin-right: auto;
 }
 
@@ -210,13 +219,15 @@
    ================ */
 
 #kundeBearbeitenForm button[type="button"] {
-    width: 116px;
-    max-width: 100%;
+    width: 1000px;
+    max-width: 33%;
+    margin-left: auto;
 }
 
 #kundeBearbeitenForm button[type="submit"] {
-    width: 405px;
-    max-width: 100%;
+    width: 1000px;
+    max-width: 67%;
+    margin-right: auto;
 }
 
 
@@ -225,13 +236,15 @@
    ============= */
 
 #kundeDetails button[id="kundeLoeschen"] {
-    width: 116px;
-    max-width: 100%;
+    width: 1000px;
+    max-width: 33%;
+    margin-left: auto;
 }
 
 #kundeDetails button[id="kundeBearbeiten"] {
-    width: 405px;
-    max-width: 100%;
+    width: 1000px;
+    max-width: 67%;
+    margin-right: auto;
 }
 
 button[id="kundeLoeschen"]:hover,
@@ -294,7 +307,7 @@ div#suche {
     text-align: right;
     padding-right: 0px;
     padding-left: 0px;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -304,13 +317,41 @@ div#suche {
     margin: 20px 0;
 }
 
+
 .kundenTabelle th, td {
     border: 2px solid var(--c1);
     padding: 6px;
     text-align: left;
+    
 }
 
 .kundenTabelle thead{
     background-color: var(--cA);
     color: var(--c2);
+    
 }
+
+.kundenTabelle tbody tr:hover {
+    background-color: #eef2ff;
+}
+
+
+/* Navigation */
+    body nav {
+        background-color: var(--c1);
+        padding: 15px;
+        display: flex;
+        gap: 20px;
+        border-radius: 3px;
+        margin-bottom: 10px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        color: var(--cA);
+    }

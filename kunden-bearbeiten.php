@@ -10,6 +10,12 @@
 </head>
 
 <body>
+     
+    <nav>
+        <a href="kunden.php">Kundenübersicht</a>
+        <a href="kunden-anlegen.php">Kunde anlegen</a>
+        <a href="login.php">Logout</a>
+    </nav>
 
     <h1>Kundenverwaltung</h1>
 
