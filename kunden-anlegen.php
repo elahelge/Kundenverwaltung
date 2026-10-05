@@ -1,3 +1,41 @@
+<?php
+
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+    $kundennummer = $_POST["kundennummer"];
+    $vorname = $_POST["vorname"];
+    $nachname = $_POST["nachname"];
+    $geburtsdatum = $_POST["geburtsdatum"];
+    $geschlecht = $_POST["geschlecht"];
+    $email = $_POST["email"];
+    $strasse = $_POST["strasse"];
+    $hausnummer = $_POST["hausnummer"];
+    $postleitzahl = $_POST["postleitzahl"];
+    $ort = $_POST["ort"];
+    $notizen = $_POST["notizen"];
+
+    $kunde = 
+    [
+        "kundennummer" => $kundennummer,
+        "vorname" => $vorname,
+        "nachname" => $nachname,
+        "geburtsdatum" => $geburtsdatum,
+        "gechlecht" => $geschlecht,
+        "email" => $email,
+        "strasse" => $strasse,
+        "hausnummer" => $hausnummer,
+        "postleitzahl" => $postleitzahl,
+        "ort" => $ort,
+        "notizen" => $notizen
+    ];
+
+    print_r($kunde);
+
+    
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="de-DE">
     
@@ -22,7 +60,7 @@
     <h2>Neuen Kunden anlegen</h2>
 
     <!--Kundenformular-->
-    <form id="kundenForm">
+    <form id="kundenForm" method="post">
 
         <fieldset>
             <legend>Stammdaten</legend>
@@ -72,9 +110,9 @@
                 <label for="geschlecht">Geschlecht</label>
                 <select name="geschlecht" id="geschlecht" required>
                     <option value="">Bitte Wählen...</option>
-                    <option value="m">Männlich</option>
-                    <option value="w">Weiblich</option>
-                    <option value="d">Divers</option>
+                    <option value="Männlich">Männlich</option>
+                    <option value="Weiblich">Weiblich</option>
+                    <option value="Divers">Divers</option>
                 </select>
             </div>
 
