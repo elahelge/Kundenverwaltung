@@ -1,6 +1,29 @@
+
+<!-- Datenbank Verknüpfung -->
+<?php
+
+include "db.php";
+
+$kundennummer = $_GET["kundennummer"];
+
+$sql = "
+SELECT * 
+FROM kunden
+WHERE kundennummer = $kundennummer
+";
+
+$result = mysqli_query($conn, $sql); 
+
+
+$gefundenerKunde = mysqli_fetch_assoc($result);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="de-DE">
-
+ 
 <head>
     <meta charset="utf-8">
     <title>Kundendetails</title>
@@ -26,32 +49,44 @@
 
         <div>
             Kundennummer:
-            <span id="kundennummer"></span>
+            <span id="kundennummer">
+                <?= str_pad($gefundenerKunde["kundennummer"], 3, "0", STR_PAD_LEFT) ?>
+            </span>
         </div>
 
         <div>
             Vorname:
-            <span id="vorname"></span>
+            <span id="vorname">
+                <?= $gefundenerKunde["vorname"] ?>
+            </span>
         </div>
 
         <div>
             Nachname:
-            <span id="nachname"></span>
+            <span id="nachname">
+                <?= $gefundenerKunde["nachname"] ?>
+            </span>
         </div>
 
         <div>
             Geburtsdatum:
-            <span id="geburtsdatum"></span>
+            <span id="geburtsdatum">
+                <?= $gefundenerKunde["geburtsdatum"] ?>
+            </span>
         </div>
 
         <div>
             Geschlecht:
-            <span id="geschlecht"></span>
+            <span id="geschlecht">
+                <?= $gefundenerKunde["geschlecht"] ?>
+            </span>
         </div>
 
         <div>
             E-Mail-Adresse:
-            <span id="email"></span>
+            <span id="email">
+                <?= $gefundenerKunde["email"] ?>
+            </span>
         </div>
     </fieldset>
 
@@ -60,33 +95,45 @@
     
         <div>
             Straße:
-            <span id="strasse"></span>
+            <span id="strasse">
+                <?= $gefundenerKunde["strasse"] ?>
+            </span>
         </div>
 
         <div>
             Hausnummer:
-            <span id="hausnummer"></span>
+            <span id="hausnummer">
+                <?= $gefundenerKunde["hausnummer"] ?>
+            </span>
         </div>
 
         <div>
             Postleitzahl:
-            <span id="postleitzahl"></span>
+            <span id="postleitzahl">
+                <?= $gefundenerKunde["postleitzahl"] ?>
+            </span>
         </div>
 
         <div>
             Ort:
-            <span id="ort"></span>
+            <span id="ort">
+                <?= $gefundenerKunde["ort"] ?>
+            </span>
         </div>
     </fieldset>
 
     <fieldset>
         <legend>Kundenstatus</legend>
-        <span id="kundenstatus"></span>
+        <span id="kundenstatus">
+            <?= $gefundenerKunde["kundenstatus"] ?>
+        </span>
     </fieldset>
 
     <fieldset>
         <legend>Notizen</legend>
-        <div id="notizen"></div>
+        <div id="notizen">
+            <?= $gefundenerKunde["notizen"] ?>
+        </div>
     </fieldset>
 
     <div class="button">
