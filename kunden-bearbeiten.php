@@ -1,3 +1,24 @@
+<?php
+
+include "db.php";
+
+$kundennummer = $_GET["kundennummer"];
+
+$gefundenerKunde = null;
+
+$sql = "
+SELECT *
+FROM kunden
+WHERE kundennummer = $kundennummer
+";
+
+$result = mysqli_query($conn, $sql);
+
+$gefundenerKunde = mysqli_fetch_assoc($result);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +42,7 @@
 
     <h2>Kunde bearbeiten</h2>
 
-    <form id="kundeBearbeitenForm">
+    <form id="kundeBearbeitenForm" method="post">
 
 
         
@@ -36,6 +57,7 @@
                 <input
                     id="kundennummer"
                     name="kundennummer"
+                    value="<?= str_pad($gefundenerKunde["kundennummer"], 3, "0", STR_PAD_LEFT) ?>"
                     type="text"
                     readonly
                 >
@@ -48,6 +70,7 @@
                 <input
                     id="vorname"
                     name="vorname"
+                    value="<?= $gefundenerKunde["vorname"] ?>"
                     type="text"
                     required
                 >
@@ -60,6 +83,7 @@
                 <input
                     id="nachname"
                     name="nachname"
+                    value="<?= $gefundenerKunde["nachname"] ?>"
                     type="text"
                     required
                 >
@@ -72,6 +96,7 @@
                 <input
                     id="geburtsdatum"
                     name="geburtsdatum"
+                    value="<?= $gefundenerKunde["geburtsdatum"] ?>"
                     type="date"
                     required
                 >
@@ -87,9 +112,9 @@
                     required
                 >
                     <option value="">Bitte wählen...</option>
-                    <option value="m">Männlich</option>
-                    <option value="w">Weiblich</option>
-                    <option value="d">Divers</option>
+                    <option value="Männlich" <?= $gefundenerKunde["geschlecht"] === "Männlich" ? "selected" : "" ?>>Männlich</option>
+                    <option value="Weiblich" <?= $gefundenerKunde["geschlecht"] === "Weiblich" ? "selected" : "" ?>>Weiblich</option>
+                    <option value="Divers" <?= $gefundenerKunde["geschlecht"] === "Divers" ? "selected" : "" ?>>Divers</option>
                 </select>
             </div>
 
@@ -100,6 +125,7 @@
                 <input
                     id="email"
                     name="email"
+                    value="<?= $gefundenerKunde["email"] ?>"
                     type="email"
                     required
                 >
@@ -118,6 +144,7 @@
                 <input
                     id="strasse"
                     name="strasse"
+                    value="<?= $gefundenerKunde["strasse"] ?>"
                     type="text"
                     required
                 >
@@ -130,6 +157,7 @@
                 <input
                     id="hausnummer"
                     name="hausnummer"
+                    value="<?= $gefundenerKunde["hausnummer"] ?>"
                     type="text"
                     required
                 >
@@ -142,6 +170,7 @@
                 <input
                     id="postleitzahl"
                     name="postleitzahl"
+                    value="<?= $gefundenerKunde["postleitzahl"] ?>"
                     type="text"
                     required
                 >
@@ -154,6 +183,7 @@
                 <input
                     id="ort"
                     name="ort"
+                    value="<?= $gefundenerKunde["ort"] ?>"
                     type="text"
                     required
                 >
@@ -174,8 +204,8 @@
                     name="kundenstatus"
                     required
                 >
-                    <option value="aktiv">Aktiv</option>
-                    <option value="inaktiv">Inaktiv</option>
+                    <option value="Aktiv" <?= $gefundenerKunde["kundenstatus"] === "Aktiv" ? "selected" : "" ?>>Aktiv</option>
+                    <option value="Inaktiv" <?= $gefundenerKunde["kundenstatus"] === "Inaktiv" ? "selected" : "" ?>>Inaktiv</option>
                 </select>
             </div>
 
@@ -193,7 +223,7 @@
                     id="notizen"
                     name="notizen"
                     rows="5"
-                ></textarea>
+                ><?= $gefundenerKunde["notizen"] ?></textarea>
             </div>
 
         </fieldset>
