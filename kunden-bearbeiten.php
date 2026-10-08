@@ -16,6 +16,41 @@ $result = mysqli_query($conn, $sql);
 
 $gefundenerKunde = mysqli_fetch_assoc($result);
 
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $vorname = $_POST["vorname"];
+    $nachname = $_POST["nachname"];
+    $geburtsdatum = $_POST["geburtsdatum"];
+    $geschlecht = $_POST["geschlecht"];
+    $email = $_POST["email"];
+    $strasse = $_POST["strasse"];
+    $hausnummer = $_POST["hausnummer"];
+    $postleitzahl = $_POST["postleitzahl"];
+    $ort = $_POST["ort"];
+    $kundenstatus = $_POST["kundenstatus"];
+    $notizen = $_POST["notizen"];
+
+    $sqlUpdate = "
+        UPDATE kunden
+        SET
+            vorname = '$vorname',
+            nachname = '$nachname',
+            geburtsdatum = '$geburtsdatum',
+            geschlecht = '$geschlecht',
+            email = '$email',
+            strasse = '$strasse',
+            hausnummer = '$hausnummer',
+            postleitzahl = '$postleitzahl',
+            ort = '$ort',
+            kundenstatus = '$kundenstatus',
+            notizen = '$notizen'
+        WHERE kundennummer = $kundennummer
+    ";
+
+    mysqli_query($conn, $sqlUpdate);
+
+    header("Location: kunden.php");
+    exit();
+}
 ?>
 
 
