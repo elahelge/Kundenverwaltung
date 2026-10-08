@@ -17,6 +17,20 @@ $result = mysqli_query($conn, $sql);
 
 $gefundenerKunde = mysqli_fetch_assoc($result);
 
+if(isset($_POST["loeschen"]))
+{
+    $sqlDEL = "
+    DELETE 
+    FROM kunden
+    WHERE kundennummer = $kundennummer
+    ";
+
+    mysqli_query($conn, $sqlDEL);
+
+    header("Location: kunden.php");
+    exit();
+}
+
 ?>
 
 
@@ -136,17 +150,29 @@ $gefundenerKunde = mysqli_fetch_assoc($result);
         </div>
     </fieldset>
 
-    <div class="button">
+        
+    
+    <form method="post">
 
-        <button id="kundeBearbeiten" type="button">
-            Kunde bearbeiten
-        </button>
+        <div class="button">
 
-        <button id="kundeLoeschen" type="button">
-            Kunde löschen
-        </button>
+            <button id="kundeBearbeiten" type="button" onclick="window.location.href='kunden-bearbeiten.php?kundennummer=<?= $gefundenerKunde["kundennummer"] ?>'">
+                    Kunde Bearbeiten
+            </button>
+    
+        
+            <button 
+                id="kundeLoeschen" 
+                name="loeschen"
+                type="submit"
+                onclick="return confirm('Kunde wirlich löschen?');"
+                >
+                Kunde Löschen
+                
+            </button>
+        </div>
+    </form>
 
-    </div>
 
 </body>
 
