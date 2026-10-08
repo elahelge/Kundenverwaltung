@@ -1,8 +1,9 @@
 <?php
 
+include "db.php";
+
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    $kundennummer = $_POST["kundennummer"];
     $vorname = $_POST["vorname"];
     $nachname = $_POST["nachname"];
     $geburtsdatum = $_POST["geburtsdatum"];
@@ -14,24 +15,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $ort = $_POST["ort"];
     $notizen = $_POST["notizen"];
 
-    $kunde = 
-    [
-        "kundennummer" => $kundennummer,
-        "vorname" => $vorname,
-        "nachname" => $nachname,
-        "geburtsdatum" => $geburtsdatum,
-        "gechlecht" => $geschlecht,
-        "email" => $email,
-        "strasse" => $strasse,
-        "hausnummer" => $hausnummer,
-        "postleitzahl" => $postleitzahl,
-        "ort" => $ort,
-        "notizen" => $notizen
-    ];
-
-    print_r($kunde);
-
+    $sqlInsert = "
+        INSERT INTO kunden (
+            vorname,
+            nachname,
+            geburtsdatum,
+            geschlecht,
+            email,
+            strasse,
+            hausnummer,
+            postleitzahl,
+            ort,
+            notizen
+        ) VALUES (
+            '$vorname',
+            '$nachname',
+            '$geburtsdatum',
+            '$geschlecht',
+            '$email',
+            '$strasse',
+            '$hausnummer',
+            '$postleitzahl',
+            '$ort',
+            '$notizen'
+        )
+    ";      
     
+    mysqli_query($conn, $sqlInsert);
+
+    header("Location: kunden.php");
+    exit();
+
 }
 
 ?>
