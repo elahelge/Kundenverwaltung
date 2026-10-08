@@ -1,31 +1,23 @@
+
+<!-- Datenbank Verknüpfung -->
 <?php
 
-$kunden = [
-    [
-        "nummer" => 1,
-        "vorname" => "Helge",
-        "nachname" => "Gepp",
-        "email" => "helge.gepp@container.de"
-    ],
-    [
-        "nummer" => 2,
-        "vorname" => "Max",
-        "nachname" => "Mustermann",
-        "email" => "max.mustermann@container.de"
-    ],
-    [
-        "nummer" => 3,
-        "vorname" => "Tom",
-        "nachname" => "Schmidt",
-        "email" => "tom.schmidt@container.de"
-    ]
-]
+include "db.php";
+
+$sql = "SELECT *FROM kunden";
+
+$result = mysqli_query($conn, $sql); 
+
+$kunden = mysqli_fetch_all(
+    $result,
+    MYSQLI_ASSOC
+);
 
 ?>
 
 
 
-
+<!-- HTML Code -->
 
 <!DOCTYPE html>
 <html lang="de-DE">
@@ -76,18 +68,21 @@ $kunden = [
 
         <?php foreach($kunden as $kunde): ?>
             <tr>
-                <td><?= str_pad($kunde["nummer"], 3, "0", STR_PAD_LEFT) ?></td>
+                <td><?= str_pad($kunde["kundennummer"], 3, "0", STR_PAD_LEFT) ?></td>
                 <td><?= $kunde["vorname"] . " " . $kunde["nachname"] ?></td>
                 <td><?= $kunde["email"] ?></td>
         
                 <td class="aktion">
-                    <a 
-                        href="kunden-details.php">Details
-                    </a>
+        
+                        <a href="kunden-details.php?kundennummer=<?php echo $kunde["kundennummer"]; ?>">
+                            Details
+                        </a>
 
-                    <a 
-                        href="kunden-bearbeiten.php">Bearbeiten
-                    </a>
+                        <a href="kunden-bearbeiten.php?kundennummer=<?php echo $kunde["kundennummer"]; ?>">
+                            Bearbeiten
+                        </a>
+                        
+                        
                 
                 </td>
                 
