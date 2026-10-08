@@ -1,8 +1,8 @@
-
-<!-- Datenbank Verknüpfung -->
 <?php
 
 include "db.php";
+
+//Abrufen des ausgewählten Kunden
 
 $kundennummer = $_GET["kundennummer"];
 
@@ -16,6 +16,8 @@ $result = mysqli_query($conn, $sql);
 
 
 $gefundenerKunde = mysqli_fetch_assoc($result);
+
+//Kunde löschen (DELETE)
 
 if(isset($_POST["loeschen"]))
 {

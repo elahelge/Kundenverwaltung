@@ -1,8 +1,8 @@
-
-<!-- Datenbank Verknüpfung -->
 <?php
 
 include "db.php";
+
+// Abrufen aller Kundendaten für Kundenübersicht
 
 $sql = "SELECT *FROM kunden";
 

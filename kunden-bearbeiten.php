@@ -1,5 +1,7 @@
 <?php
 
+//Abrufen des ausgewählten Kunden
+
 include "db.php";
 
 $kundennummer = $_GET["kundennummer"];
@@ -15,6 +17,8 @@ WHERE kundennummer = $kundennummer
 $result = mysqli_query($conn, $sql);
 
 $gefundenerKunde = mysqli_fetch_assoc($result);
+
+// Aktualisieren der Daten (UPDATE)
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $vorname = $_POST["vorname"];
@@ -268,13 +272,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <button type="submit">
                 Änderungen speichern
             </button>
-
+            
             <button
                 type="button"
                 id="abbrechen"
+                onclick="window.location.href='kunden.php'"
             >
                 Abbrechen
             </button>
+            
         </div>
 
 
