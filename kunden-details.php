@@ -17,6 +17,7 @@ $result = mysqli_query($conn, $sql);
 
 $gefundenerKunde = mysqli_fetch_assoc($result);
 
+
 //Kunde löschen (DELETE)
 
 if(isset($_POST["loeschen"]))
@@ -40,7 +41,7 @@ if(isset($_POST["loeschen"]))
 <!DOCTYPE html>
 <html lang="de-DE">
  
-<head>
+<head >
     <meta charset="utf-8">
     <title>Kundendetails</title>
 
@@ -94,7 +95,24 @@ if(isset($_POST["loeschen"]))
         <div>
             Geschlecht:
             <span id="geschlecht">
-                <?= $gefundenerKunde["geschlecht"] ?>
+                <?php 
+                    if($gefundenerKunde["geschlecht"] == "m")
+                        {
+                            echo "Männlich";
+                        }
+                    elseif($gefundenerKunde["geschlecht"] == "w")
+                        {
+                            echo "Weiblich";
+                        }
+                    elseif($gefundenerKunde["geschlecht"] == "d")
+                        {
+                            echo "Divers";
+                        } 
+                    else
+                        {
+                            echo "Keine Angabe";
+                        }
+                ?>
             </span>
         </div>
 

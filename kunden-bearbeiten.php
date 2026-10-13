@@ -151,9 +151,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     required
                 >
                     <option value="">Bitte wählen...</option>
-                    <option value="Männlich" <?= $gefundenerKunde["geschlecht"] === "Männlich" ? "selected" : "" ?>>Männlich</option>
-                    <option value="Weiblich" <?= $gefundenerKunde["geschlecht"] === "Weiblich" ? "selected" : "" ?>>Weiblich</option>
-                    <option value="Divers" <?= $gefundenerKunde["geschlecht"] === "Divers" ? "selected" : "" ?>>Divers</option>
+                    <option value="m" <?= $gefundenerKunde["geschlecht"] === "m" ? "selected" : "" ?>>Männlich</option>
+                    <option value="w" <?= $gefundenerKunde["geschlecht"] === "w" ? "selected" : "" ?>>Weiblich</option>
+                    <option value="d" <?= $gefundenerKunde["geschlecht"] === "d" ? "selected" : "" ?>>Divers</option>
                 </select>
             </div>
 
