@@ -75,16 +75,9 @@ $kunden = mysqli_fetch_all(
                 <td> 
                     <?php
                     if($kunde['kundenstatus'] == 'Aktiv') {
-                    ?>
-                        <span class="status aktiv"></span>
-                            Aktiv
-                    <?php
+                        echo '<span class="status-badge aktiv">Aktiv</span>';
                     } else {
-                    ?>
-                        
-                        <span class="status inaktiv"></span>
-                            Inaktiv
-                    <?php
+                        echo '<span class="status-badge inaktiv">Inaktiv</span>';
                     }
                     ?>
                 </td>
