@@ -1,3 +1,45 @@
+<?php
+
+session_start();
+
+include "db.php";
+
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $sqlLogin = "SELECT * FROM benutzer WHERE benutzername = '$username'";
+
+    $result = mysqli_query($conn, $sqlLogin);
+
+    $benutzer = mysqli_fetch_assoc($result);
+
+    if($password == $benutzer["passwort"])
+    {
+        $_SESSION["username"] = $username;
+
+        header("Location: kunden.php");
+        exit();
+    }
+    else
+    {
+        echo "Login fehlgeschlagen!";
+        exit();
+    }
+}
+
+?>
+
+
+
+
+
+
+ 
+
+
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -8,7 +50,7 @@
 
     <link rel="stylesheet" href="main.css">
     <script src="main.js" defer></script>
-</head>
+</head>  
 
 <body id="login">
 
@@ -17,7 +59,7 @@
     <!-- Login Modul -->
     
 
-    <form id="loginForm">
+    <form id="loginForm" method="post">
 
         <fieldset>
 

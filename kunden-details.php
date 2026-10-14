@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+
+if(!isset($_SESSION["username"]))
+{
+    header("Location: login.php");
+    exit();
+}
+
 include "db.php";
 
 //Abrufen des ausgewählten Kunden
@@ -54,7 +62,7 @@ if(isset($_POST["loeschen"]))
     <nav>
         <a href="kunden.php">Kundenübersicht</a>
         <a href="kunden-anlegen.php">Kunde anlegen</a>
-        <a href="login.php">Logout</a>
+        <a href="logout.php">Logout</a>
     </nav>
 
     <h1>Kundenverwaltung</h1>

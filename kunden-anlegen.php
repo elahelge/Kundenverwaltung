@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+
+if(!isset($_SESSION["username"]))
+{
+    header("Location: login.php");
+    exit();
+}
+
 // Anlegen von Kunden
 
 include "db.php";
@@ -78,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     <nav>
         <a href="kunden.php">Kundenübersicht</a>
         <a href="kunden-anlegen.php">Kunde anlegen</a>
-        <a href="login.php">Logout</a>
+        <a href="logout.php">Logout</a>
     </nav>
 
     <h1>Kundenverwaltung</h1>
