@@ -4,6 +4,16 @@
 
 include "db.php";
 
+$sqlMaxKundennummer = "SELECT MAX(kundennummer) AS hoechste_nummer FROM kunden";
+
+$result = mysqli_query($conn, $sqlMaxKundennummer);
+
+$row = mysqli_fetch_assoc($result);
+
+$hoechsteKundennummer = $row['hoechste_nummer'];
+
+$naechsteKundennummer = $hoechsteKundennummer + 1;
+
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $vorname = $_POST["vorname"];
@@ -87,8 +97,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 <input
                     id="kundennummer"
                     name="kundennummer"
+                    value="<?= str_pad($naechsteKundennummer, 3, "0", STR_PAD_LEFT) ?>"
                     type="text"
-                    required
+                    readonly
                 >
             </div>
 
