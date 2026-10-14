@@ -1,9 +1,9 @@
 /* Definition von Variablen */
 :root {
-    --cBack: #F8FAFC;
-    --c1: #0f172a;
-    --c2: #FFFFFF;
-    --cA: #4f46e5;
+    --cBack: #0f172a;   /* Hintergrund */
+    --c1: #e2e8f0;      /* Text */
+    --c2: #1e293b;      /* Karten/Formulare */
+    --cA: #6366f1;      /* Akzentfarbe */
 }
 
 /* =========
@@ -14,7 +14,13 @@
     }
 
     body {
-        background-color: var(--cBack);
+        background: linear-gradient(
+            135deg,
+            #0f172a 0%,
+            #111827 50%,
+            #1e293b 100%
+        );
+
         color: var(--c1);
         font-family: system-ui, -apple-system, BlinkMacSystemFont,
             'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
@@ -39,7 +45,8 @@
             margin: 0 auto;
             padding: 8px 0;
             
-            border:solid 1px var(--c1);
+            background-color: var(--c2);
+            border: solid 1px #334155;
             border-radius: 3px;
         }
 
@@ -55,7 +62,8 @@
     input,
     select,
     textarea {
-        border: solid 1px var(--c1);
+        background-color: #334155;
+        border: solid 1px #475569;
         border-radius: 3px;
         color: var(--c1);
         padding: 6px;
@@ -80,7 +88,7 @@
     button {
         color: var(--c1);
         background-color: var(--c2);
-        border: solid 1px var(--c1);
+        border: solid 1px #475569;
         border-radius: 3px;
         padding: 6px;
         cursor: pointer;
@@ -89,8 +97,8 @@
         /* Button änderung beim klicken und drübergehn */
         button:hover,
         button:focus {
-            background-color: var(--cA);
-            color: var(--c2);
+        background-color: var(--cA);
+        color: white;
         }
 
     /* Formular */
@@ -98,7 +106,8 @@
         /* Abschnitte im Formular */
         fieldset {
             background-color: var(--c2);
-            border: solid 1px var(--c1);
+            border: solid 1px #334155;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             border-radius: 3px;
 
             padding: 20px;
@@ -138,7 +147,7 @@
             width: 100%;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 0px;
+            padding: 0px; 
             padding-block: 8px;
             display: flex;
         }
@@ -235,13 +244,13 @@
    KUNDE DETAILS
    ============= */
 
-#kundeDetails button[id="kundeLoeschen"] {
+#kundeDetails button[id="kundeLoeschen"]{
     width: 1000px;
     max-width: 33%;
     margin-left: auto;
 }
 
-#kundeDetails button[id="kundeBearbeiten"] {
+#kundeDetails button[id="kundeBearbeiten"],.button a {
     width: 1000px;
     max-width: 67%;
     margin-right: auto;
@@ -303,6 +312,11 @@ button[id="kundeLoeschen"]:focus {
    KUNDENUEBERSICHT
    ================ */
 
+#kundenUebersicht
+{
+    border-collapse: collapse;
+}
+
 div#suche { 
     text-align: right;
     padding-right: 0px;
@@ -313,30 +327,29 @@ div#suche {
 
 .kundenTabelle{ 
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     margin: 20px 0;
+    border: 1px solid #334155;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 
 .kundenTabelle th, td {
-    border: 2px solid;
     padding: 6px;
     text-align: left;
-}
-
-.kundenTabelle td {
-    border:var(--c1);
+    border: 1px solid #334155;
 }
 
 .kundenTabelle thead{
-    background-color: var(--c1);
-    color: var(--c2);
-    
-    
+    background-color: #273549;
+    color: #e2e8f0;    
 }
 
 .kundenTabelle tbody tr:hover {
-    background-color: #eef2ff;
+    background-color: #334155;
 }
 
 .kundenTabelle a {
@@ -345,7 +358,7 @@ div#suche {
     padding: 6px 12px;
     margin-right: 5px;
 
-    background-color: var(--c2);
+    background-color: #334155;
     color: var(--c1);
 
     text-decoration: none;
@@ -354,14 +367,15 @@ div#suche {
 }
 
 .kundenTabelle a:hover {
-    color: var(--cA);
+    color: #818cf8;
     
 }
 
 
 /* Navigation */
     body nav {
-        background-color: var(--c1);
+        background-color: #1e293b;
+        border: 1px solid #334155;
         padding: 15px;
         display: flex;
         gap: 20px;
