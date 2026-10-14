@@ -60,18 +60,36 @@ $kunden = mysqli_fetch_all(
                 <th>Kundennummer</th>
                 <th>Name</th>
                 <th>E-Mail-Adresse</th>
-                <th></th>
+                <th>Status</th>
+                
             </tr>
         </thead>
 
         <tbody id="kundenTabelleNeu"> 
 
         <?php foreach($kunden as $kunde): ?>
-            <tr>
+            <tr onclick="window.location.href='kunden-details.php?kundennummer=<?php echo $kunde['kundennummer']; ?>'">
                 <td><?= str_pad($kunde["kundennummer"], 3, "0", STR_PAD_LEFT) ?></td>
                 <td><?= $kunde["vorname"] . " " . $kunde["nachname"] ?></td>
                 <td><?= $kunde["email"] ?></td>
-        
+                <td> 
+                    <?php
+                    if($kunde['kundenstatus'] == 'Aktiv') {
+                    ?>
+                        <span class="status aktiv"></span>
+                            Aktiv
+                    <?php
+                    } else {
+                    ?>
+                        
+                        <span class="status inaktiv"></span>
+                            Inaktiv
+                    <?php
+                    }
+                    ?>
+                </td>
+
+       <!--   
                 <td class="aktion">
         
                         <a href="kunden-details.php?kundennummer=<?php echo $kunde["kundennummer"]; ?>">
@@ -81,11 +99,7 @@ $kunden = mysqli_fetch_all(
                         <a href="kunden-bearbeiten.php?kundennummer=<?php echo $kunde["kundennummer"]; ?>">
                             Bearbeiten
                         </a>
-                        
-                        
-                
-                </td>
-                
+                </td> -->
             </tr>
         
             <?php endforeach; ?>

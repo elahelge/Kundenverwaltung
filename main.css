@@ -348,15 +348,19 @@ div#suche {
     color: #e2e8f0;    
 }
 
+.kundenTabelle tbody tr
+{
+    cursor: pointer;
+}
+
 .kundenTabelle tbody tr:hover {
     background-color: #334155;
 }
-
+/*
 .kundenTabelle a {
     display: inline-block;
 
     padding: 6px 12px;
-    margin-right: 5px;
 
     background-color: #334155;
     color: var(--c1);
@@ -370,7 +374,25 @@ div#suche {
     color: #818cf8;
     
 }
+*/
 
+.status {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.aktiv {
+    background-color: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+.inaktiv {
+    background-color: #ef4444;
+    box-shadow: 0 0 8px #ef4444;
+}
 
 /* Navigation */
     body nav {
