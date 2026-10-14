@@ -158,9 +158,11 @@ if(isset($_POST["loeschen"]))
 
     <fieldset>
         <legend>Kundenstatus</legend>
-        <span id="kundenstatus">
-            <?= $gefundenerKunde["kundenstatus"] ?>
-        </span>
+        <div>
+            <span id="kundenstatus">
+                <?= $gefundenerKunde["kundenstatus"] ?>
+            </span>
+        </div>
     </fieldset>
 
     <fieldset>
