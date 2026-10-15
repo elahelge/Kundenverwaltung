@@ -12,7 +12,18 @@ include "db.php";
 
 // Abrufen aller Kundendaten für Kundenübersicht
 
-$sql = "SELECT *FROM kunden";
+$suche = $_GET["suche"];
+
+if(empty($_GET["suche"]))
+{
+    $sql = "SELECT * FROM kunden";
+}
+else
+{
+    $sql = "SELECT * FROM kunden
+            WHERE vorname LIKE '%$suche%'
+            OR nachname LIKE '%$suche%'";
+}
 
 $result = mysqli_query($conn, $sql); 
 
@@ -51,15 +62,18 @@ $kunden = mysqli_fetch_all(
     <h2>Kundenübersicht</h2>
 
     <!--Suchfunktion-->
-    <div id="suche">
-        <label for="suche"></label>
-        <input 
-            id="suche"
-            name="suche"
-            type="search"
-            placeholder="Kunden suchen"
-            >
-    </div>
+    <form method="GET">
+        <div id="suche">
+            <label for="suche"></label>
+            <input 
+                id="suche"
+                name="suche"
+                type="search"
+                placeholder="Kunden suchen"
+                >
+        </div>
+    </form>
+    
     <!--Kundentabelle-->
     <table class="kundenTabelle">
 
