@@ -3,6 +3,7 @@
 session_start();
 
 include "db.php";
+require_once __DIR__ . "/funktionen.php";
 
 $fehlermeldung = "";
 
@@ -17,17 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     $benutzer = mysqli_fetch_assoc($result);
 
-    if($benutzer && password_verify($password, $benutzer["passwort"]))
-    {
-        $_SESSION["username"] = $username;
-
-        header("Location: kunden.php"); 
-        exit();
-    }
-    else
-    {
-        $fehlermeldung = "Benutzername oder Passwort ist falsch!";
-    }
+    $fehlermeldung = login($benutzer, $password);
 
 }
 

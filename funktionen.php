@@ -82,5 +82,21 @@ function kundeAbrufen($conn, $kundennummer)
     return $gefundenerKunde;
 }
 
+function login($benutzer, $password)
+{
+    if($benutzer && password_verify($password, $benutzer["passwort"]))
+    {
+        $_SESSION["username"] = $benutzer["benutzername"];
+
+        header("Location: kunden.php"); 
+        exit();
+    }
+    else
+    {
+        return "Benutzername oder Passwort ist falsch!";
+    }
+}
+
+
 
 ?>
