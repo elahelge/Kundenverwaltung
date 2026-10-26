@@ -1,72 +1,25 @@
 <?php
 
-session_start();
+require_once __DIR__ . "/funktionen.php";
 
-if(!isset($_SESSION["username"]))
-{
-    header("Location: login.php");
-    exit();
-}
+// Login prüfen
+    pruefeLogin();
 
 // Anlegen von Kunden
 
 include "db.php";
 
-$sqlMaxKundennummer = "SELECT MAX(kundennummer) AS hoechste_nummer FROM kunden";
+    // Nächste Kundennummer aufrufen
+    $naechsteKundennummer = naechsteKundennummer($conn);
 
-$result = mysqli_query($conn, $sqlMaxKundennummer);
+    // Kunde hinzufügen
+     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$row = mysqli_fetch_assoc($result);
-
-$hoechsteKundennummer = $row['hoechste_nummer'];
-
-$naechsteKundennummer = $hoechsteKundennummer + 1;
-
-if($_SERVER["REQUEST_METHOD"] == "POST")
-{
-    $vorname = $_POST["vorname"];
-    $nachname = $_POST["nachname"];
-    $geburtsdatum = $_POST["geburtsdatum"];
-    $geschlecht = $_POST["geschlecht"];
-    $email = $_POST["email"];
-    $strasse = $_POST["strasse"];
-    $hausnummer = $_POST["hausnummer"];
-    $postleitzahl = $_POST["postleitzahl"];
-    $ort = $_POST["ort"];
-    $notizen = $_POST["notizen"];
-
-    $sqlInsert = "
-        INSERT INTO kunden (
-            vorname,
-            nachname,
-            geburtsdatum,
-            geschlecht,
-            email,
-            strasse,
-            hausnummer,
-            postleitzahl,
-            ort,
-            notizen
-        ) VALUES (
-            '$vorname',
-            '$nachname',
-            '$geburtsdatum',
-            '$geschlecht',
-            '$email',
-            '$strasse',
-            '$hausnummer',
-            '$postleitzahl',
-            '$ort',
-            '$notizen'
-        )
-    ";      
-    
-    mysqli_query($conn, $sqlInsert);
-
-    header("Location: kunden.php");
-    exit();
-
-}
+            kundeHinzufuegen($conn);
+                
+            header("Location: kunden.php");
+            exit();
+    }
 
 ?>
 

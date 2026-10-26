@@ -1,30 +1,14 @@
 <?php
 
-session_start();
-
-if(!isset($_SESSION["username"]))
-{
-    header("Location: login.php");
-    exit();
-}
+require_once __DIR__ . "/funktionen.php";
+pruefeLogin();
 
 //Abrufen des ausgewählten Kunden
-
 include "db.php";
 
 $kundennummer = $_GET["kundennummer"];
+$gefundenerKunde = kundeAbrufen($conn, $kundennummer);
 
-$gefundenerKunde = null;
-
-$sql = "
-SELECT *
-FROM kunden
-WHERE kundennummer = $kundennummer
-";
-
-$result = mysqli_query($conn, $sql);
-
-$gefundenerKunde = mysqli_fetch_assoc($result);
 
 // Aktualisieren der Daten (UPDATE)
 

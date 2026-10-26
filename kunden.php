@@ -1,16 +1,12 @@
 <?php
 
-session_start();
+require_once __DIR__ . "/funktionen.php";
 
-if(!isset($_SESSION["username"]))
-{
-    header("Location: login.php");
-    exit();
-}
+// Login prüfen
+pruefeLogin();
 
+// Abrufen aller Kundendaten
 include "db.php";
-
-// Abrufen aller Kundendaten für Kundenübersicht
 
 $suche = $_GET["suche"];
 

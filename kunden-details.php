@@ -1,43 +1,22 @@
 <?php
 
-session_start();
+require_once __DIR__ . "/funktionen.php";
 
-if(!isset($_SESSION["username"]))
-{
-    header("Location: login.php");
-    exit();
-}
-
-include "db.php";
+// Login prüfen
+pruefeLogin();
 
 //Abrufen des ausgewählten Kunden
+include "db.php";
 
 $kundennummer = $_GET["kundennummer"];
-
-$sql = "
-SELECT * 
-FROM kunden
-WHERE kundennummer = $kundennummer
-";
-
-$result = mysqli_query($conn, $sql); 
+$gefundenerKunde = kundeAbrufen($conn, $kundennummer);
 
 
-$gefundenerKunde = mysqli_fetch_assoc($result);
-
-
-//Kunde löschen (DELETE)
-
+//Kunde löschen
 if(isset($_POST["loeschen"]))
 {
-    $sqlDEL = "
-    DELETE 
-    FROM kunden
-    WHERE kundennummer = $kundennummer
-    ";
-
-    mysqli_query($conn, $sqlDEL);
-
+    kundeLoeschen($conn, $kundennummer);
+        
     header("Location: kunden.php");
     exit();
 }
