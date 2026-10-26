@@ -13,12 +13,12 @@ include "db.php";
     $naechsteKundennummer = naechsteKundennummer($conn);
 
     // Kunde hinzufügen
-     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-            kundeHinzufuegen($conn);
-                
-            header("Location: kunden.php");
-            exit();
+     if ($_SERVER["REQUEST_METHOD"] == "POST") 
+    {
+        kundeHinzufuegen($conn);
+            
+        header("Location: kunden.php");
+        exit();
     }
 
 ?>
