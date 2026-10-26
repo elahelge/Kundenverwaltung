@@ -4,6 +4,8 @@ session_start();
 
 include "db.php";
 
+$fehlermeldung = "";
+
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $username = $_POST["username"];
@@ -15,18 +17,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     $benutzer = mysqli_fetch_assoc($result);
 
-    if($password == $benutzer["passwort"])
+    if($benutzer && password_verify($password, $benutzer["passwort"]))
     {
         $_SESSION["username"] = $username;
 
-        header("Location: kunden.php");
+        header("Location: kunden.php"); 
         exit();
     }
     else
     {
-        echo "Login fehlgeschlagen!";
-        exit();
+        $fehlermeldung = "Benutzername oder Passwort ist falsch!";
     }
+
 }
 
 ?>
@@ -84,8 +86,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                     name="password"
                     type="password"
                     required
-                >
+                > 
+                <?php 
+                if(!empty($fehlermeldung)) 
+                {
+                    echo '<p class="fehler">' .$fehlermeldung. '</p>';
+                }
+                ?>
             </div>
+
+            
 
         </fieldset>
 
