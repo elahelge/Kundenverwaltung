@@ -205,6 +205,13 @@
     margin: 0 auto;
 }
 
+.fehler {
+    color: #ef4444;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
 
 /* =============
    KUNDE ANLEGEN
