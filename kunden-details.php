@@ -147,13 +147,7 @@ if(isset($_POST["loeschen"]))
         <legend>Kundenstatus</legend>
         <div>
             <span id="kundenstatus">
-                <?php
-                    if($gefundenerKunde['kundenstatus'] == 'Aktiv') {
-                        echo '<span class="status-badge aktiv">Aktiv</span>';
-                    } else {
-                        echo '<span class="status-badge inaktiv">Inaktiv</span>';
-                    }
-                ?>
+                <?=statusBadge($gefundenerKunde['kundenstatus'])?>
             </span>
         </div>
     </fieldset>
