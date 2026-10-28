@@ -8,7 +8,10 @@ pruefeLogin();
 // Abrufen aller Kundendaten
 include "db.php";
 
-$suche = $_GET["suche"];
+$sql = "SELECT * FROM kunden";
+
+/*
+$suche = $_GET["suche"] ?? "";
 
 if(empty($_GET["suche"]))
 {
@@ -17,16 +20,12 @@ if(empty($_GET["suche"]))
 else
 {
     $sql = "SELECT * FROM kunden
-            WHERE vorname LIKE '%$suche%'
-            OR nachname LIKE '%$suche%'";
+            WHERE CONCAT(vorname, ' ', nachname) LIKE '%$suche%'";
 }
-
+*/
 $result = mysqli_query($conn, $sql); 
 
-$kunden = mysqli_fetch_all(
-    $result,
-    MYSQLI_ASSOC
-);
+$kunden = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
 ?>
 
@@ -53,20 +52,20 @@ $kunden = mysqli_fetch_all(
         <a href="logout.php">Logout</a>
     </nav>
 
-    <h1>Kundenverwaltung</h1>
+    <h1>Kundenverwaltung</h1> 
 
     <h2>Kundenübersicht</h2>
 
     <!--Suchfunktion-->
-    <form method="GET">
-        <div id="suche">
+    <form id="kundenSuche" method="GET">
+        <div id="sucheContainer">
             <label for="suche"></label>
-            <input 
+            <input
                 id="suche"
                 name="suche"
                 type="search"
                 placeholder="Kunden suchen"
-                >
+            >
         </div>
     </form>
     
@@ -91,26 +90,8 @@ $kunden = mysqli_fetch_all(
                 <td><?= $kunde["vorname"] . " " . $kunde["nachname"] ?></td>
                 <td><?= $kunde["email"] ?></td>
                 <td> 
-                    <?php
-                    if($kunde['kundenstatus'] == 'Aktiv') {
-                        echo '<span class="status-badge aktiv">Aktiv</span>';
-                    } else {
-                        echo '<span class="status-badge inaktiv">Inaktiv</span>';
-                    }
-                    ?>
+                    <?= statusBadge($kunde['kundenstatus'])?>
                 </td>
-
-       <!--   
-                <td class="aktion">
-        
-                        <a href="kunden-details.php?kundennummer=<?php echo $kunde["kundennummer"]; ?>">
-                            Details
-                        </a>
-
-                        <a href="kunden-bearbeiten.php?kundennummer=<?php echo $kunde["kundennummer"]; ?>">
-                            Bearbeiten
-                        </a>
-                </td> -->
             </tr>
         
             <?php endforeach; ?>
