@@ -5,7 +5,7 @@ const tabelle = document.querySelector("#kundenTabelleNeu");
 
 suchfeld.addEventListener("input", function() {
 
-    const suchtext = suchfeld.value.rtoLowerCase();
+    const suchtext = suchfeld.value.toLowerCase();
     const zeilen = tabelle.querySelectorAll("tr");
 
     for (let i = 0; i < zeilen.length; i++) {
