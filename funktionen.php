@@ -97,6 +97,16 @@ function login($benutzer, $password)
     }
 }
 
-
+function statusBadge($status)
+{
+    if($status == 'Aktiv') 
+        {
+            echo '<span class="status-badge aktiv">Aktiv</span>';
+        } 
+    else 
+        {
+            echo '<span class="status-badge inaktiv">Inaktiv</span>';
+        }
+}
 
 ?>
