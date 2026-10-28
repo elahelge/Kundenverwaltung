@@ -324,7 +324,7 @@ button[id="kundeLoeschen"]:focus {
     border-collapse: collapse;
 }
 
-div#suche { 
+div#sucheContainer { 
     text-align: right;
     padding-right: 0px;
     padding-left: 0px;
