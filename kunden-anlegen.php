@@ -179,7 +179,7 @@ include "db.php";
         <div class="button">
             <button type="submit">Kunde anlegen</button>
         
-            <button type="button">Abbrechen</button>
+            <button type="button" onclick="window.location.href='kunden.php'">Abbrechen</button>
         </div>
 
     </form>
